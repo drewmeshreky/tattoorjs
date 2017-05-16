@@ -12,6 +12,6 @@ angular.module('artist-header', [])
 		
 			$(".header").sticky();
 	  	},
-	  controllerAs: 'ctrl',
+	  controllerAs: 'artistHeader',
 	};
 });

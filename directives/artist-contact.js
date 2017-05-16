@@ -10,6 +10,6 @@ angular.module('artist-contact', [])
 				{ question: "How do I get started?", answer: "Talk to me! I can get you set up."},
 			];
 		},
-		controllerAs: 'ctrl'
+		controllerAs: 'artistContact'
 	};
 });
