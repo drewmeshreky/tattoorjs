@@ -50,7 +50,8 @@
 		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHcfHPsIjF0g_XqN0nkFSFFhzAAnmnNYw&v=3.exp&amp;amp;sensor=false"></script>
 		<script src="scripts/gmaps.js"></script>	
-		<script src="scripts/jquery.sticky.js"></script>	
+		<script src="scripts/jquery.sticky.js"></script>
+		<script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>		
 		
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID.-->
 		<script>
@@ -67,3 +68,14 @@
 	</body>
 </html>
 
+
+
+<script>
+    var client = filestack.init('A77HiFpIdSIuKv3ihmKw7z');
+    function showPicker() {
+        client.pick({
+        }).then(function(result) {
+            console.log(JSON.stringify(result.filesUploaded))
+        });
+    }
+</script>
