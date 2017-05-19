@@ -2,7 +2,7 @@ angular.module('artist-contact', [])
 .directive("artistContact", function() {
 	return {
 		restrict: 'E',
-		templateUrl: 'templates/artist-contact.html',
+		templateUrl: 'templates/directives/artist-contact.html',
 		controller: function () {
 			this.faqs = [
 				{ question: "How much do you charge?", answer: "Tattoor is free. You pay nothing!" },

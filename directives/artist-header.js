@@ -2,7 +2,7 @@ angular.module('artist-header', [])
 .directive("artistHeader", function() {
 	return {
 		restrict: 'E',
-      	templateUrl: 'templates/artist-header.html',
+      	templateUrl: 'templates/directives/artist-header.html',
 	  	controller: function () {
 			this.artist = {
 				name: 'Tattoor',

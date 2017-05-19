@@ -2,9 +2,9 @@ angular.module('artist-location', [])
 .directive("artistLocation", function() {
 	return {
 		restrict: 'E',
-		templateUrl: 'templates/artist-location.html',
+		templateUrl: 'templates/directives/artist-location.html',
 		controller: function() {
-			
+
 			this.location = { name: 'Tattoor Main Office', address: '1631 Camino De Salmon St, Corona, CA 92881', phoneNumber: '951.737.9963'};
 			this.lat = 33.8242518;
 			this.lng = -117.5469268;

@@ -1,0 +1,16 @@
+<!--
+	<artist-navbar></artist-navbar>
+-->
+<artist-header></artist-header>
+<artist-contact></artist-contact>
+<artist-location></artist-location>
+
+<script>
+    var client = filestack.init('A77HiFpIdSIuKv3ihmKw7z');
+    function showPicker() {
+        client.pick({
+        }).then(function(result) {
+            console.log(JSON.stringify(result.filesUploaded))
+        });
+    }
+</script>
