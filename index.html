@@ -19,10 +19,7 @@
 
 		<!-- theme stylesheet-->
 		<link rel="stylesheet" href="content/style.red.css" id="theme-stylesheet">
-
-		<!-- Favicon
-		<link rel="shortcut icon" href="favicon.png">
-		-->
+		<link rel="stylesheet" href="content/custom.css" id="theme-stylesheet">
 
 		<!-- Tweaks for older IEs-->
 		<!--[if lt IE 9]>
@@ -38,38 +35,43 @@
 		<!-- Javascript files header-->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-		<script src="scripts/jquery.sticky.js"></script>
-		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHcfHPsIjF0g_XqN0nkFSFFhzAAnmnNYw&v=3.exp&amp;amp;sensor=false"></script>
-		<script src="scripts/gmaps.js"></script>	
-		<script src="https://static.filestackapi.com/v3/filestack.js"></script>		
 	</head>
 
-	<body ng-app="tattoor" data-spy="scroll" data-target="#navigation" data-offset="120">	
-			
-		<div ng-controller="TattoorController as tattoor">
+	<body ng-app="tattoor">	
+					
+		<nav class="navbar navbar-default navbar-fixed-top">
+	        <div class="navbar-header">
+	            <!-- Navbar Brand -->
+	            <a href="#" class="navbar-brand">Tattoor</a>
+	        </div>
+		</nav>	
+		
+		<div class="ui-view" ng-controller="TattoorController as tattoor">
 			<ui-view></ui-view>		
 		</div>
+		
+		<footer>
+			<div class="container">
+				<div class="row copyright">
+					<div class="col-md-6">
+						<p class="roboto">&copy; 2017 Tattoor</p>
+		          	</div>
+					<div class="col-md-6">
+		            	<p class="credit roboto"><a href="http://bootstrapious.com/portfolio-themes">Bootstrap Portfolio Themes</a></p>
+		            	<!-- Please do not remove the backlink to us. It is part of the licence conditions. Thanks for understanding :)-->
+		          	</div>
+				</div>
+			</div>
+		</footer>				
 			
 		<!-- Controllers-->
-		<script type="text/javascript" src="controllers/artist.js"></script>
-
+		<script type="text/javascript" src="app/artist/artist.js"></script>
+				
 		<!-- Directives-->
-		<script type="text/javascript" src="directives/artist-navbar.js"></script>
-		<script type="text/javascript" src="directives/artist-header.js"></script>
-		<script type="text/javascript" src="directives/artist-contact.js"></script>
-		<script type="text/javascript" src="directives/artist-location.js"></script>
-			
-		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID.-->
-		<script>
-			(function (b, o, i, l, e, r) {
-				b.GoogleAnalyticsObject = l; b[l] || (b[l] =
-					function () { (b[l].q = b[l].q || []).push(arguments) }); b[l].l = +new Date;
-					e = o.createElement(i); r = o.getElementsByTagName(i)[0];
-					e.src = 'https://www.google-analytics.com/analytics.js';
-					r.parentNode.insertBefore(e, r)
-			}(window, document, 'script', 'ga'));
-			ga('create', 'UA-XXXXX-X'); ga('send', 'pageview');
-		</script>
-
+		<script type="text/javascript" src="app/artist/directives/artist-header.js"></script>
+		<script type="text/javascript" src="app/artist/directives/artist-contact.js"></script>
+		<script type="text/javascript" src="app/artist/directives/client-info.js"></script>
+		<script type="text/javascript" src="app/artist/directives/tattoo-info.js"></script>
+				
 	</body>
 </html>

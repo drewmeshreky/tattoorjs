@@ -1,0 +1,40 @@
+.navbar-default .navbar-brand {
+	color: #e50000;
+	text-transform: uppercase;
+	font-family: 'Roboto Condensed', sans-serif;
+	font-size:xx-large;
+}
+
+.navbar-brand {
+  	padding: 15px 15px;
+	font-weight: bold;
+}
+
+body {
+    padding-top: 50px;
+}
+
+.ui-view {
+	padding-bottom: 50px;
+}
+
+.jumbotron {
+	background-color: #c50000;
+}
+
+.jumbotron h1, .jumbotron h4 {
+	font-weight: inherit;
+	color: #ffffff
+}
+
+.form-control {
+	height: 46px;
+	padding: 10px 16px;
+	font-size: 18px;
+	line-height: 1.3333333;
+	border-radius: 3px
+}
+
+footer {
+	background-color: #000000;
+}
