@@ -46,6 +46,7 @@ var ArtistController = function($http) {
 
 	this.submitRequest = function(request) {
 		var self = this;
+		request.referenceImages = self.referenceImages;
 		
 		$http.post(
 			"https://tattoor.azurewebsites.net/api/ApptRequest?code=UBg8xPsHOhFccQhQMjrOKuTPLQWRPzFimeaQ5H6JMt8wwOryUZrh4w==", request)

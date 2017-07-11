@@ -1,14 +1,19 @@
 <h2>Reference Images</h2>
 <hr/>
 <div class="row">
-	<div class="col-md-12">
+	<div class="form-group">
 		<div ng-repeat="image in artistCtrl.referenceImages">
-			<div class="col-md-3">
-				<img ng-src="{{image.url}}" class="img-responsive" alt="Responsive image">		  
+			<div class="col-md-4">
+				<img ng-src="{{image.url}}" class="img-thumbnail">
 			</div>
 		</div>
 	</div>
-	<div class="col-md-12">
-		<input type="button" value="Upload" ng-click="artistCtrl.showPicker()" />
+</div>
+<div class="row">
+	<div class="col-md-3">
+		<div class="form-group">
+			<input type="button" class="btn btn-primary btn-lg" value="Upload Images" ng-click="artistCtrl.showPicker();">
+		</div>
 	</div>
+</div>
 </div>
