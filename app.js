@@ -1,5 +1,5 @@
 var app = angular.module('tattoor',
-	['ui.router','artist-header','artist-contact','client-info','tattoo-info']);
+	['ui.router','artist-header','artist-contact','client-info','tattoo-info','reference-images']);
 
 app.controller('TattoorController', function() {
 });
