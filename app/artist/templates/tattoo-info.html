@@ -4,7 +4,7 @@
     <div class="col-md-12">
         <div class="form-group">
             <h4 for="description">What do you want to get?</h4>
-            <textarea id="description" ng-model="request.description" class="form-control" rows="4" required>
+            <textarea id="description" ng-model="artistCtrl.request.description" class="form-control" rows="4" required>
 			</textarea>
         </div>
     </div>
@@ -13,7 +13,7 @@
     <div class="col-md-6">
 		<div class="form-group">
 		  <h4 for="placement">Placement</h4>
-		  <select class="form-control" id="placement" ng-model="request.placement" ng-options="placement for placement in artistCtrl.placementOptions" required>
+		  <select class="form-control" id="placement" ng-model="artistCtrl.request.placement" ng-options="placement for placement in artistCtrl.placementOptions" required>
 			<option value=""></option>
 		  </select>
 		</div>
@@ -21,7 +21,7 @@
     <div class="col-md-6">
 		<div class="form-group">
 		  <h4 for="style">Style</h4>
-		  <select class="form-control" id="style" ng-model="request.style" ng-options="style for style in artistCtrl.styleOptions" required>
+		  <select class="form-control" id="style" ng-model="artistCtrl.request.style" ng-options="style for style in artistCtrl.styleOptions" required>
 			<option value=""></option>
 		  </select>
 		</div>
@@ -32,20 +32,23 @@
 		<h4>Size (in inches)</h4>
 	</div>
     <div class="col-md-6">
-        <h4 for="width">Width</h4>
-        <input id="width" type="number" name="width" class="form-control" required="required" data-error="Width is required.">
+		<div class="form-group">
+        	<h4 for="width">Width</h4>
+        	<input id="width" type="number" name="width" class="form-control" ng-model="artistCtrl.request.width" required>
+		</div>
 	</div>
     <div class="col-md-6">
-        <h4 for="height">Height</h4>
-        <input id="height" type="number" name="height" class="form-control" required="required" data-error="Height is required.">
-        <div class="help-block with-errors"></div>
+		<div class="form-group">
+        	<h4 for="height">Height</h4>
+        	<input id="height" type="number" name="height" class="form-control" ng-model="artistCtrl.request.height" required>
+		</div>
 	</div>
 </div>
 <div class="row">
     <div class="col-md-12">
 		<div class="form-group">
-		  <h4 for="budget">Budget</h4>
-		  <select class="form-control" id="budget" ng-model="request.budget" ng-options="budget for budget in artistCtrl.budgetOptions" required>
+			<h4 for="budget">Budget</h4>
+		  	<select class="form-control" id="budget" ng-model="artistCtrl.request.budget" ng-options="budget for budget in artistCtrl.budgetOptions" required>
 			<option value=""></option>
 	  	  </select>
 		</div>
