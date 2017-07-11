@@ -2,8 +2,8 @@
     <div class="col-md-12">
         <div class="form-group">
             <h4 for="description">What do you want to get?</h4>
-            <textarea id="description" name="description" class="form-control" rows="4" required="required" data-error="Description is required"></textarea>
-            <div class="help-block with-errors"></div>
+            <textarea id="description" ng-model="request.description" class="form-control" rows="4" required>
+			</textarea>
         </div>
     </div>
 </div>
@@ -11,29 +11,16 @@
     <div class="col-md-6">
 		<div class="form-group">
 		  <h4 for="placement">Placement</h4>
-		  <select class="form-control" id="placement">
-		    <option>Open to suggestion</option>
-		    <option>Head</option>
-		    <option>Neck</option>
-		    <option>Chest</option>
-		    <option>Back</option>
-		    <option>Shoulder</option>
-		    <option>Upper Arm</option>
-		    <option>Forearm</option>
-		    <option>Stomach</option>
-		    <option>Thigh</option>
-		    <option>Calf</option>
-		    <option>Other</option>
+		  <select class="form-control" id="placement" ng-model="request.placement" ng-options="placement for placement in artistCtrl.placementOptions" required>
+			<option value=""></option>
 		  </select>
 		</div>
     </div>
     <div class="col-md-6">
 		<div class="form-group">
 		  <h4 for="style">Style</h4>
-		  <select class="form-control" id="style">
-		    <option>Black &amp; gray</option>
-		    <option>Color</option>
-		    <option>Open to suggestion</option>
+		  <select class="form-control" id="style" ng-model="request.style" ng-options="style for style in artistCtrl.styleOptions" required>
+			<option value=""></option>
 		  </select>
 		</div>
     </div>
@@ -45,7 +32,6 @@
     <div class="col-md-6">
         <h4 for="width">Width</h4>
         <input id="width" type="number" name="width" class="form-control" required="required" data-error="Width is required.">
-        <div class="help-block with-errors"></div>
 	</div>
     <div class="col-md-6">
         <h4 for="height">Height</h4>
@@ -57,15 +43,9 @@
     <div class="col-md-12">
 		<div class="form-group">
 		  <h4 for="budget">Budget</h4>
-		  <select class="form-control" id="budget">
-		    <option>$100</option>
-		    <option>$100-$250</option>
-		    <option>$250-$500</option>
-		    <option>$500-$1000</option>
-		    <option>$1000-$2000</option>
-		    <option>$2000-$5000</option>
-		    <option>$5000+</option>
-		  </select>
+		  <select class="form-control" id="budget" ng-model="request.budget" ng-options="budget for budget in artistCtrl.budgetOptions" required>
+			<option value=""></option>
+	  	  </select>
 		</div>
     </div>
 </div>

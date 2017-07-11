@@ -2,15 +2,13 @@
     <div class="col-md-6">
         <div class="form-group">
             <h4 for="firstName">First Name</h4>
-            <input id="firstName" type="text" name="firstName" class="form-control" required="required" data-error="First name is required.">
-            <div class="help-block with-errors"></div>
+            <input id="firstName" type="text" ng-model="request.firstName" class="form-control" required />
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-group">
             <h4 for="lastName">Last Name</h4>
-            <input id="lastName" type="text" name="lastName" class="form-control" required="required" data-error="Last name is required.">
-            <div class="help-block with-errors"></div>
+            <input id="lastName" type="text" ng-model="request.lastName" class="form-control" required />
         </div>
     </div>
 </div>
@@ -18,15 +16,13 @@
     <div class="col-md-6">
         <div class="form-group">
             <h4 for="email">Email</h4>
-            <input id="email" type="email" name="email" class="form-control" required="required" data-error="Valid email is required.">
-            <div class="help-block with-errors"></div>
+            <input id="email" type="email" ng-model="request.email" class="form-control" required />
         </div>
     </div>
     <div class="col-md-6">
         <div class="form-group">
             <h4 for="phoneNumber">Mobile Phone Number</h4>
-            <input id="phoneNumber" type="tel" name="phoneNumber" class="form-control" required="required" data-error="Phone number is required.">
-            <div class="help-block with-errors"></div>
+            <input id="phoneNumber" type="tel" ng-model="request.phoneNumber" class="form-control" required />
         </div>
     </div>
 </div>

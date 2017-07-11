@@ -1,24 +1,41 @@
 var module = angular.module('tattoor');
 
-var ArtistController = function() {
+var ArtistController = function($http) {
 
 	this.artist = {
-		name: 'Drew Meshreky',
-		description: 'Online appointment requests built for tattoo artists',
-		image: 'https://scontent-dft4-3.cdninstagram.com/t51.2885-19/s320x320/18300017_424845637895118_1725354621263675392_a.jpg'
+		name: 'Demo Account',
+		description: 'This is a demo of Tattoor, the online appointment app built for tattoo artists. Fill out the form to see how it works.',
 	};
 	
-	this.faqs = [
-		{ question: "How much do you charge?", answer: "Tattoor is free. You pay nothing!" },
-		{ question: "How do you make money?", answer: "Right now, that's not our main focus. Our main focus is building a tool that artists love. If we do that, we know we'll find a way to build a sustainable business." },
-		{ question: "How do I get started?", answer: "Talk to me! I can get you set up."},
-	];
+	this.requestStates = {
+	    UNDEFINED: 0,
+	    SENT: 1,
+	    FAILED: 2
+	};
 	
-	this.referencePhotos = [];
+	this.requestState = this.requestStates.UNDEFINED;
+	this.reponseMessage = '';
+	
+	this.placementOptions = ["Open to Suggestion","Head","Neck","Chest","Back","Shoulder","Upper Arm","Forearm","Stomach","Thigh","Calf","Other"];
+	this.styleOptions = ["Black & Gray","Color","Open to Suggestion"];
+	this.budgetOptions = ["$100","$100-$250","$250-$500","$500-$1000","$1000-$2000","$2000-$5000","$5000+"];
 
-	this.location = { name: 'Tattoor Main Office', address: '1631 Camino De Salmon St, Corona, CA 92881', phoneNumber: '951.737.9963'};
-	this.lat = 33.8242518;
-	this.lng = -117.5469268;
+	this.submitRequest = function(request) {
+		var self = this;
+		
+		$http.post(
+			"https://tattoor.azurewebsites.net/api/ApptRequest?code=UBg8xPsHOhFccQhQMjrOKuTPLQWRPzFimeaQ5H6JMt8wwOryUZrh4w==", request)
+		.then(
+			function(response) {
+				self.requestState = self.requestStates.SENT;
+				self.reponseMessage = response.data;
+			},
+			function(error) {
+				self.requestState = self.requestStates.FAILED;
+				self.reponseMessage = error.data.message;
+			}
+		);
+	}
 };
 
 module.controller('ArtistController', ArtistController);
