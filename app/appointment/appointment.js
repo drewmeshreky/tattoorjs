@@ -1,6 +1,6 @@
 var module = angular.module('tattoor');
 
-var ArtistController = function($stateParams, $http, $scope) {
+var AppointmentController = function($stateParams, $http, $scope) {
 
 	this.requestStates = {
 	    UNDEFINED: 0,
@@ -15,22 +15,22 @@ var ArtistController = function($stateParams, $http, $scope) {
 		$http.get(artistUrl)
 		.then(
 			function(response) {
-				self.request.artist = response.data;
+				self.appointmentRequest.artist = response.data;
 			},
 			function(error) {
-				self.request.artist = null;
+				self.appointmentRequest.artist = null;
 			}
 		);
 	}
 	
 	this.init = function() {
 		
-		this.request = {};
+		this.appointmentRequest = {};
 		this.getArtist($stateParams.artistId);
-		this.request.images = [];
+		this.appointmentRequest.images = [];
 
-		this.requestState = this.requestStates.UNDEFINED;
-		this.reponseMessage = '';
+		this.appointmentRequest.state = this.requestStates.UNDEFINED;
+		this.responseMessage = '';
 
 		this.placementOptions = ["Open to Suggestion","Head","Neck","Chest","Back","Shoulder","Upper Arm","Forearm","Stomach","Thigh","Calf","Other"];
 		this.styleOptions = ["Black & Gray","Color","Open to Suggestion"];
@@ -49,7 +49,7 @@ var ArtistController = function($stateParams, $http, $scope) {
 		.then(
 			function(result) {
 				result.filesUploaded.forEach(function(fileUploaded) {
-					self.request.images.push(fileUploaded);
+					self.appointmentRequest.images.push(fileUploaded);
 					$scope.$apply();
 				})			
 			}
@@ -60,15 +60,15 @@ var ArtistController = function($stateParams, $http, $scope) {
 		var self = this;
 		
 		$http.post(
-			"https://tattoor.azurewebsites.net/api/ApptRequest?code=UBg8xPsHOhFccQhQMjrOKuTPLQWRPzFimeaQ5H6JMt8wwOryUZrh4w==", self.request)
+			"https://tattoor.azurewebsites.net/api/ApptRequest?code=UBg8xPsHOhFccQhQMjrOKuTPLQWRPzFimeaQ5H6JMt8wwOryUZrh4w==", self.appointmentRequest)
 		.then(
 			function(response) {
-				self.requestState = self.requestStates.SENT;
-				self.reponseMessage = response.data;
+				self.appointmentRequest.state = self.requestStates.SENT;
+				self.responseMessage = response.data;
 			},
 			function(error) {
-				self.requestState = self.requestStates.FAILED;
-				self.reponseMessage = error.data.message;
+				self.appointmentRequest.state = self.requestStates.FAILED;
+				self.responseMessage = error.data.message;
 			}
 		);
 	}
@@ -76,4 +76,4 @@ var ArtistController = function($stateParams, $http, $scope) {
 	this.init();
 };
 
-module.controller('ArtistController', ArtistController);
+module.controller('AppointmentController', AppointmentController);

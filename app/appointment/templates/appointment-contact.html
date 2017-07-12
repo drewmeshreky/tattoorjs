@@ -1,4 +1,4 @@
-<form id="apptRequestForm" ng-submit="artistCtrl.submitRequest(request)">
+<form id="apptRequestForm" ng-submit="apptCtrl.submitRequest(request)">
 
     <div class="controls">
 		<client-info></client-info>
@@ -14,8 +14,8 @@
     	</div>
 	    
 	    <div class="messages">
-			<div ng-if="artistCtrl.requestState == artistCtrl.requestStates.SENT" class="alert alert-success" role="alert">{{artistCtrl.reponseMessage}}</div>
-			<div ng-if="artistCtrl.requestState == artistCtrl.requestStates.FAILED" class="alert alert-error" role="alert">{{artistCtrl.reponseMessage}}</div>
+			<div ng-if="apptCtrl.appointmentRequest.state == apptCtrl.requestStates.SENT" class="alert alert-success" role="alert">{{apptCtrl.responseMessage}}</div>
+			<div ng-if="apptCtrl.appointmentRequest.state == apptCtrl.requestStates.FAILED" class="alert alert-error" role="alert">{{apptCtrl.responseMessage}}</div>
 		</div>
 
     </div>

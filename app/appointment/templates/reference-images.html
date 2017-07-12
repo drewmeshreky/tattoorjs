@@ -2,7 +2,7 @@
 <hr/>
 <div class="row">
 	<div class="form-group">
-		<div ng-repeat="image in artistCtrl.request.images">
+		<div ng-repeat="image in apptCtrl.appointmentRequest.images">
 			<div class="col-md-4">
 				<img ng-src="{{image.url}}" class="img-thumbnail">
 			</div>
@@ -12,7 +12,7 @@
 <div class="row">
 	<div class="col-md-3">
 		<div class="form-group">
-			<input type="button" class="btn btn-primary btn-lg" value="Upload Images" ng-click="artistCtrl.showPicker();">
+			<input type="button" class="btn btn-primary btn-lg" value="Upload Images" ng-click="apptCtrl.showPicker();">
 		</div>
 	</div>
 </div>
