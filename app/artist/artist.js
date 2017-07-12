@@ -1,6 +1,6 @@
 var module = angular.module('tattoor');
 
-var ArtistController = function($http, $scope) {
+var ArtistController = function($stateParams, $http, $scope) {
 
 	this.requestStates = {
 	    UNDEFINED: 0,
@@ -8,11 +8,24 @@ var ArtistController = function($http, $scope) {
 	    FAILED: 2
 	};
 	
+	this.getArtist = function(id) {
+		var self = this;
+		
+		var artistUrl = `https://tattoor.azurewebsites.net/api/artist/${id}?code=X1NU5Y3CMgr59UWcUqRkl7k3HUGvy9rSE5W6oeGyi6Kl/MoaLWw5uA==`;
+		$http.get(artistUrl)
+		.then(
+			function(response) {
+				self.artist = response.data;
+			},
+			function(error) {
+				self.artist = null;
+			}
+		);
+	}
+	
 	this.init = function() {
-		this.artist = {
-			name: 'Demo Account',
-			description: 'This is a demo of Tattoor, the online appointment app built for tattoo artists. Fill out the form to see how it works.',
-		};		
+		
+		this.getArtist($stateParams.id);
 
 		this.request = {};
 		this.request.images = [];
