@@ -13,7 +13,7 @@ app.config(function($stateProvider) {
 	
   var aboutState = {
     name: 'artist',
-    url: '/artist/{id}',
+    url: '/artist/{artistId}',
     templateUrl: 'app/artist/artist.html'
   }
 

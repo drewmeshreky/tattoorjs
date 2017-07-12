@@ -8,26 +8,25 @@ var ArtistController = function($stateParams, $http, $scope) {
 	    FAILED: 2
 	};
 	
-	this.getArtist = function(id) {
+	this.getArtist = function(artistId) {
 		var self = this;
 		
-		var artistUrl = `https://tattoor.azurewebsites.net/api/artist/${id}?code=X1NU5Y3CMgr59UWcUqRkl7k3HUGvy9rSE5W6oeGyi6Kl/MoaLWw5uA==`;
+		var artistUrl = `https://tattoor.azurewebsites.net/api/artist/${artistId}?code=X1NU5Y3CMgr59UWcUqRkl7k3HUGvy9rSE5W6oeGyi6Kl/MoaLWw5uA==`;
 		$http.get(artistUrl)
 		.then(
 			function(response) {
-				self.artist = response.data;
+				self.request.artist = response.data;
 			},
 			function(error) {
-				self.artist = null;
+				self.request.artist = null;
 			}
 		);
 	}
 	
 	this.init = function() {
 		
-		this.getArtist($stateParams.id);
-
 		this.request = {};
+		this.getArtist($stateParams.artistId);
 		this.request.images = [];
 
 		this.requestState = this.requestStates.UNDEFINED;
